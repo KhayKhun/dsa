@@ -94,9 +94,10 @@ class LinkedList:
         found = False
         
         while current and not found:
+            # if head node is the desired node to be removed
             if current.data == key and current is self.head:
                 found = True
-                self.head = current.next_node
+                self.head = current.next_node # assign head to the next node
             elif current.data == key:
                 found = True
                 prev.next_node = current.next_node
