@@ -1,3 +1,4 @@
+# my solution
 class Solution(object):
     def sortedSquares(self, nums):
         """
@@ -12,7 +13,6 @@ class Solution(object):
         return squared_list
         
 # other solutions
-
 class Solution:
     def sortedSquares(self, nums):
         squares = [num * num for num in nums]
