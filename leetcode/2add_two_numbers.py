@@ -1,3 +1,5 @@
+from time import time
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -42,7 +44,12 @@ l2 = ListNode(5)
 l2.next = ListNode(6)
 l2.next.next = ListNode(4)
 
+start_time = time()
 result = addTwoNumbers(l1, l2)
+end_time = time()
+
 while result:
     print(result.val, end=" ")
     result = result.next
+
+print("elapsed:",end_time - start_time)

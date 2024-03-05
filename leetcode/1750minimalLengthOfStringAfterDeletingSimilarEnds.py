@@ -1,5 +1,8 @@
+from time import *
 # my solution (beats 66%)
 def minimumLength(s):
+        s_time = time()
+    
         """
         :type s: str
         :rtype: int
@@ -10,21 +13,22 @@ def minimumLength(s):
                 s = s[1:]
             while len(s) and s[-1] == match_char:
                 s = s[:-1]
-            
-        return len(s)
+        e_time = time()
+        return (len(s), e_time-s_time)
                 
 # other solution  
-def minimumLength(s):
-        left, right = 0, len(s) - 1
+# def minimumLength(s):
+#         left, right = 0, len(s) - 1
         
-        while left < right and s[left] == s[right]:
-            char = s[left]
-            while left <= right and s[left] == char:
-                left += 1
-            while right >= left and s[right] == char:
-                right -= 1
+#         while left < right and s[left] == s[right]:
+#             char = s[left]
+#             while left <= right and s[left] == char:
+#                 left += 1
+#             while right >= left and s[right] == char:
+#                 right -= 1
         
-        return right - left + 1  
+#         return right - left + 1  
         
-s = "ccabbaccbabcbccaaabbaaaac"
-print(minimumLength(s))
+s = "ccabbaccbabcbccaaabbaaaaccc"
+result = minimumLength(s)
+print(result)
