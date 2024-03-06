@@ -1,114 +1,111 @@
-class Node:
-    """
-    An object for storing a single node
-    """
-    data = None
-    next_node = None
-    
-    def __init__(self,data):
-        self.data = data
+class LinkNode:
+    next = None
+    def __init__(self,v):
+        self.val = v
     
     def __repr__(self):
-        return "<Node data: %s>" % self.data
+        return "<Node: %s>" % self.val
     
+# add
+# clear
+# size
+# remove
+# insert
+# is exists
+# is empty
+# replace head
+# replace rest
+# last
+
 class LinkedList:
-    """
-    Singly linked list
-    """
     def __init__(self):
         self.head = None
-        
-    def is_empty(self):
-        return self.head is None
+    
+    def isEmpty(self):
+        return False if self.head else True
+    
+    def add(self, v):
+        newNode = LinkNode(v)
+        if self.isEmpty():
+            self.head = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
+    
+    def clear(self):
+        self.head = None
     
     def size(self):
-        """
-        Takes linear time
-        """
         current = self.head
-        count = 0
-        
+        len = 0
         while current:
-            count += 1
-            current = current.next_node
-        return count
-    
-    def add(self, data):
-        """
-        Add new node at head of the list
-        takes O(1) time
-        """
-        # assign the current head node as a next_node of the new new node
-        new_node = Node(data)
-        new_node.next_node = self.head
-        # give head role to new node
-        self.head = new_node
-    
-    def search(self,key):
-        """
-        Return first node matches the key
-        Takes O(n) linear time
-        """
-        current = self.head
+            len += 1
+            current = current.next
         
+        return len
+    
+    def isExists(self,key):
+        current = self.head        
         while current:
-            if current.data == key:
-                return current
+            if current.val == key:
+                return True
             else:
-                current = current.next_node
-        return None
-    
-    def insert(self, data, index):
-        """
-        Inserts a new node with the given data at the specified index position.
-        Takes O(n) linear time.
-        """
-        if index == 0:  # If the index is 0, add the new node at the beginning
-            self.add(data)
-            
-        elif index > 0:
-            new_node = Node(data)
-            position = index
-            current = self.head
-
-            # Iterate through the list until we reach the desired position or the end
-            while position > 1 and current.next_node: # position = index. 
-                current = current.next_node
-                position -= 1
-
-            # Insert the new node at the specified position
-            new_node.next_node = current.next_node
-            current.next_node = new_node
-            
-        else:
-            raise IndexError("Index out of range")
-
-    
-    def remove(self,key):
-        """
-            Remove node containing data that matches key
-            Takes O(n) time
-        """
-        current = self.head
-        prev = None
-        found = False
-        
-        while current and not found:
-            # if head node is the desired node to be removed
-            if current.data == key and current is self.head:
-                found = True
-                self.head = current.next_node # assign head to the next node
-            elif current.data == key:
-                found = True
-                prev.next_node = current.next_node
-            else:
-                prev = current
-                current = current.next_node
+                current = current.next
                 
-        if not found:
-            return None
+        return False
+    
+    def insert(self,v,index):
+        current = self.head
+        if index == 0 :
+            self.add(v)
+            return
+        
+        newNode = LinkNode(v)  
+        for i in range(0,index-1):
+            current = current.next
+        
+        if current:
+            newNode.next = current.next if current.next else None
+            current.next = newNode  
         else:
-            return current
+            self.add(v)        
+    
+    def remove(self,index):
+        current = self.head
+        if current and index == 0 : 
+            self.head = current.next
+            return
+            
+        for i in range(0,index-1):
+            current = current.next
+            
+        if not current or not current.next:
+            return
+        
+        current.next = current.next.next if current.next.next else None
+    
+    def replaceHead(self,v):
+        if self.isEmpty(): return
+        
+        n = self.head.next
+        self.head = LinkNode(v)
+        self.head.next = n
+        
+    def replaceRest(self,arr):
+        if self.isEmpty(): return
+        if len(arr) == 0: self.head.next = None
+        
+        current = self.head
+        for v in arr:
+            newNode = LinkNode(v)
+            current.next = newNode
+            current = current.next
+    
+    def last(self, l):
+        if self.isEmpty(): return None
+        elif l and l.next:
+            return self.last(l.next)
+        else: return l
     
     def __repr__(self):
         current = self.head
@@ -116,12 +113,12 @@ class LinkedList:
         
         while current:
             if current is self.head:
-                nodes.append("[Head: %s]" % current.data)
-            elif current.next_node:
-                nodes.append("[%s]" % current.data)
+                nodes.append("[Head: %s]" % current.val)
+            elif current.next:
+                nodes.append("[%s]" % current.val)
             else:
-                nodes.append("[Tail: %s]" % current.data)
+                nodes.append("[Tail: %s]" % current.val)
                 
-            current = current.next_node
-        
-        return '-> '.join(nodes)
+            current = current.next
+            
+        return "->".join(nodes) if len(nodes) else "[]"
