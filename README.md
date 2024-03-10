@@ -20,3 +20,4 @@ Recursive function- function that calls itself
 - [x] Stacks - FILO or LIFO
 - [x] Queues - FIFO
 - [x] Doubly Linked lists
+- [] Binary tree
