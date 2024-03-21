@@ -1,5 +1,4 @@
 from linkedList import LinkedList
-from linkedList import LinkNode
 
 l = LinkedList()
 l.push(99)
@@ -62,6 +61,5 @@ def split(link):
         
     return left,right
             
-    
-print('input: ',l)
-print('op: ',mergeSort(l))
+print(l)
+print(mergeSort(l))
