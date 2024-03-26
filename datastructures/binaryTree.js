@@ -6,12 +6,12 @@ class Node{
     }
 }
 
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
+const a = new Node(6);
+const b = new Node(5);
+const c = new Node(4);
+const d = new Node(9);
+const e = new Node(1);
+const f = new Node(-12);
   
 a.left = b;
 a.right = c;
@@ -72,11 +72,52 @@ function isInTree(root,target){
     return false
 }
 function isInTreeReursive(root,target){
-    console.log(root.val,target)
+    if(!root) return false;
     if(root.val === target) return true
-    const left = root.left ? isInTreeReursive(root.left,target) : false
-    const right = root.right ? isInTreeReursive(root.right,target) : false
-    return left || right
+    return isInTreeReursive(root.left,target) || isInTreeReursive(root.right,target)
 }
 
-console.log(isInTreeReursive(a,'x'))
+function sum(root){
+    if(!root) return 0;
+    let sum = 0
+    let stack = [root]
+    while(stack.length > 0){
+        const current = stack.pop()
+        sum += current.val;
+        if(current.left) stack.push(current.left)
+        if(current.right) stack.push(current.right)
+    }
+return sum
+}
+
+function sumRecursive(root){
+    if(!root) return 0;
+    return root.val + sum(root.left) + sum(root.right)
+}
+
+function smallest(root){
+    if(!root) return;
+    let min = root.val;
+    let stack = [root];
+    while(stack.length > 0){
+        console.log(stack)
+        let current = stack.pop()
+        if(current.val < min) min = current.val
+        if(current.left) stack.push(current.left)
+        if(current.right) stack.push(current.right)
+    }
+return min
+}
+function smallestRecursive(root){
+    if(!root) return;
+    const left = root.left ? smallestRecursive(root.left) : root.val;
+    const right = root.right ? smallestRecursive(root.right) : root.val;
+    return Math.min(root.val, left, right);
+}
+
+function smallestRecursiveUsingInfinity(root){
+    if(!root) return Infinity;
+    return Math.min(root.val, smallestRecursive(root.left),smallestRecursive(root.right) )
+}
+
+console.log(smallestRecursive(a))
