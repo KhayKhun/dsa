@@ -71,5 +71,12 @@ function isInTree(root,target){
     }
     return false
 }
+function isInTreeReursive(root,target){
+    console.log(root.val,target)
+    if(root.val === target) return true
+    const left = root.left ? isInTreeReursive(root.left,target) : false
+    const right = root.right ? isInTreeReursive(root.right,target) : false
+    return left || right
+}
 
-console.log(isInTree(a,'b'))
+console.log(isInTreeReursive(a,'x'))
