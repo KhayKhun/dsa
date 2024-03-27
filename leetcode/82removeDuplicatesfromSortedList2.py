@@ -25,14 +25,19 @@ class Solution:
         prev = dummy
         current = head
         while current and current.next:
+            # duplicated case
             if current.val == current.next.val:
-
+                # move current until there is no duplicate
                 while current.next and current.val == current.next.val:
-                    current = current.next #None
-
+                    current = current.next
+                
+                # if there is no more duplicate, follow the prev along
                 prev.next = current.next
                 current = current.next
+
+            # not duplicated case
             else:
+                # step forward the prev and current normally
                 prev.next = current
                 prev = current
                 current = current.next
