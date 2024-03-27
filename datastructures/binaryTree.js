@@ -6,12 +6,12 @@ class Node{
     }
 }
 
-const a = new Node(6);
-const b = new Node(5);
-const c = new Node(4);
-const d = new Node(9);
-const e = new Node(1);
-const f = new Node(-12);
+const a = new Node(1);
+const b = new Node(2);
+const c = new Node(3);
+const d = new Node(4);
+const e = new Node(5);
+const f = new Node(0);
   
 a.left = b;
 a.right = c;
@@ -120,4 +120,31 @@ function smallestRecursiveUsingInfinity(root){
     return Math.min(root.val, smallestRecursive(root.left),smallestRecursive(root.right) )
 }
 
-console.log(smallestRecursive(a))
+function maxPath(root){
+    if(!root) return 0;
+    let max = root.val
+
+    function sumTilLeaf(root,sum = 0){
+        let current_sum = root.val + sum
+        if(!root.left && !root.right){
+            if(current_sum > max) max = current_sum
+        }
+        if(root.left){
+            sumTilLeaf(root.left,current_sum)
+        }
+        if(root.right){
+            sumTilLeaf(root.right,current_sum)
+        }
+    }
+    sumTilLeaf(root)
+    return max
+
+}
+
+function maxPath2(root){
+    if(!root) return -Infinity;
+    const maxChild = Math.max(maxPath2(root.left), maxPath2(root.right))
+    return root.val + (maxChild != -Infinity ? maxChild : 0);
+}
+
+console.log(maxPath2(a))
