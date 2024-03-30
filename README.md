@@ -5,4 +5,5 @@
 - [x] Queues - FIFO
 - [x] Doubly Linked lists
 - [x] Binary tree
-- [] Heap
+- [x] Hash set, map
+- Graph
