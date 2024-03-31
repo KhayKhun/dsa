@@ -6,6 +6,34 @@ my_graph = {
     'f' : [],
     'd' : ['f'],
 }
+my_graph2 = {
+    'f' : ['g','i'],
+    'g' : ['h'],
+    'h' : [],
+    'i' : ['g','k'],
+    'j' : ['i'],
+    'k' : [],
+}
+
+undirected_graph = [
+    ['i','j'],
+    ['i','k'],
+    ['m','k'],
+    ['l','k'],
+    ['o','n'],
+]
+
+def build_graph(edges):
+    graph = {}
+    for i,j in edges:
+        if not i in graph: graph[i] = []
+        if not j in graph: graph[j] = []
+        graph[i].append(j)
+        graph[j].append(i)
+    return graph
+
+
+# print(build_graph(undirected_graph))
 
 def depth_first_values(graph,point):
     stack = [point]
@@ -39,7 +67,31 @@ def breadth_first_values(graph,point):
             queue.append(i)
     return values
 
+# 0(e), edges || O(n^2
 
 
-print(depth_first_values(my_graph,'a'))
-print(depth_first_values_recursive(my_graph,'a'))
+def hasPath(graph,src,dst):
+    stack = [src]
+    already = set()
+    while len(stack) > 0:
+        current = stack.pop()
+        already.add(current)
+        for i in graph[current]:
+            if i == dst:
+                return True
+            if not i in already: stack.append(i)
+        
+    return False
+
+def hasPathRecursive(graph,src,dst):
+    if src == dst:return True
+
+    for i in graph[src]:
+        if hasPathRecursive(graph,i,dst): return True
+        
+    return False
+
+# print(depth_first_values(my_graph,'a'))
+# print(depth_first_values_recursive(my_graph,'a'))
+# print(hasPathRecursive(my_graph2,'j','k'))
+# print(hasPath(build_graph(undirected_graph),'i','m'))

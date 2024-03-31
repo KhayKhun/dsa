@@ -1,5 +1,5 @@
 class Solution:
-    def minimumLevels(self, possible: List[int]) -> int:
+    def minimumLevels(self, possible):
         total,d = 0,0
         for i in possible:
             if i: total += 1
