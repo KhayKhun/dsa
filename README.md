@@ -7,8 +7,8 @@
 - [x] Binary tree
 - [x] Hash set, map
 - [x] Graph
-- [] Grid graph
-- [] Sliding window
-- [] Backtracking
-- [] Two pointers
-- [] Greedy
+- [ ] Grid graph
+- [ ] Sliding window
+- [ ] Backtracking
+- [ ] Two pointers
+- [ ] Greedy
