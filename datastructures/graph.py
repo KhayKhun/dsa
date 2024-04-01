@@ -25,7 +25,15 @@ undirected_graph = [
     ['o','n'],
     ['a','b']
 ]
-
+udg1 = [
+    ['a','b'],
+    ['b','c'],
+    ['c','e'],
+    ['d','a'],
+    ['d','f'],
+    ['g','f'],
+    ['g','e'],
+]
 def build_graph(edges):
     graph = {}
     for i,j in edges:
@@ -34,6 +42,27 @@ def build_graph(edges):
         graph[i].append(j)
         graph[j].append(i)
     return graph
+
+def shortest_path(edges,start,dst):
+    graph = build_graph(edges)
+    visited = set()
+    queue = [(start,0)]
+
+    while len(queue) > 0:
+        print(queue)
+        current = queue[0]
+        visited.add(current)
+        queue.remove(current)
+
+        for i in graph[current[0]]:
+            if i == dst: return current[1] +1
+            if not i in visited:
+                queue.append((i,current[1] +1))
+
+    return -1
+
+print(shortest_path(udg1,'a','z'))
+
 
 def connected_components(undirected):
     graph = build_graph(undirected)
@@ -79,7 +108,7 @@ def each_group_max(graph,current,visited):
                 stack.append(i)
     return total
 
-print(largest_component(undirected_graph))
+# print(largest_component(undirected_graph))
 
 
 # print(build_graph(undirected_graph))
