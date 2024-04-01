@@ -6,4 +6,9 @@
 - [x] Doubly Linked lists
 - [x] Binary tree
 - [x] Hash set, map
-- Graph
+- [x] Graph
+- [] Grid graph
+- [] Sliding window
+- [] Backtracking
+- [] Two pointers
+- [] Greedy
