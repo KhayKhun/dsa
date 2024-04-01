@@ -1,5 +1,6 @@
+from collections import defaultdict
 class Solution:
-    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+    def canVisitAllRooms(self, rooms):
         graph = self.build(rooms)
         visited = set()
         stack = [0]
