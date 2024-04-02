@@ -48,7 +48,7 @@ def explore_land_and_return_size(grid,r,c):
         if is_land(grid,row-1,col): stack.append((row-1,col))
         if is_land(grid,row,col+1): stack.append((row,col+1))
         if is_land(grid,row,col-1): stack.append((row,col-1))
-        
+
     return size
 
 def is_land(grid,r,c):
