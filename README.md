@@ -8,7 +8,7 @@
 - [x] Hash set, map
 - [x] Graph
 - [x] Grid graph
-- [ ] Sliding window
+- [x] Sliding window
 - [ ] Backtracking
-- [ ] Two pointers
+- [x] Two pointers
 - [ ] Greedy
