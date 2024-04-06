@@ -10,7 +10,6 @@ class Solution:
             d[s[r]] += 1
             total = sum(d.values())
             others = total - max(d.values())
-            
             # not violated
             if others <= k:
                 longest = max(longest,total)

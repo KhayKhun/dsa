@@ -1,3 +1,4 @@
+from collections import defaultdict
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
         d = defaultdict(list)
