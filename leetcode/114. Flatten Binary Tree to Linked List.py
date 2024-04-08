@@ -29,9 +29,7 @@ class Solution:
     def flatten(self, root):
         def main(node):
             if not node: return
-            print('noded:',node)
             if node.left:
-                print('true:',node)
                 right = node.right
                 
                 node.right = main(node.left)

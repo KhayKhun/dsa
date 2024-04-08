@@ -2,8 +2,7 @@ from collections import defaultdict, Counter
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         d = defaultdict(int)
-        d[s[0]] += 1
-        l,r = 0,1
+        l,r = 0,0
         longest = 0
 
         while r < len(s):

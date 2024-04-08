@@ -8,7 +8,10 @@
 - [x] Hash set, map
 - [x] Graph
 - [x] Grid graph
+- [x] dfs, bfs
 - [x] Sliding window
 - [ ] Backtracking
 - [x] Two pointers
 - [ ] Greedy
+- [ ] Prefix Sums
+- [ ] Dynamic Progrmming
