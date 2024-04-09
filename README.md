@@ -5,6 +5,11 @@
 - [x] Queues - FIFO
 - [x] Doubly Linked lists
 - [x] Binary tree
+- [x] Binary search tree
+- [ ] Heap
+- [ ] Priority queue
+- [ ] Avl
+- [ ] B-tree
 - [x] Hash set, map
 - [x] Graph
 - [x] Grid graph
