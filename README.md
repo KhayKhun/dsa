@@ -6,16 +6,19 @@
 - [x] Doubly Linked lists
 - [x] Binary tree
 - [x] Binary search tree
-- [ ] Heap
-- [ ] Priority queue
-- [ ] Avl
+  - height is not under control
+  - Can take up to O(n) 
+- [x] Heap
+- [x] Priority queue
+- [ ] Avl tree
+- [ ] Red-black tree
 - [ ] B-tree
 - [x] Hash set, map
 - [x] Graph
 - [x] Grid graph
 - [x] dfs, bfs
 - [x] Sliding window
-- [ ] Backtracking
+- [x] Backtracking
 - [x] Two pointers
 - [ ] Greedy
 - [ ] Prefix Sums
