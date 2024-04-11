@@ -1,6 +1,6 @@
-type Fn = (...params: number[]) => number
+type Func = (...params: number[]) => number
 
-function memoize(fn: Fn): Fn {
+function memoize(fn: Func): Func {
     const cache = {}
     return function(...args) {
         const s = args.toString();
