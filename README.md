@@ -1,6 +1,7 @@
 ﻿![LeetCode Stats](https://leetcard.jacoblin.cool/khaykhun?theme=nord&font=Monda&ext=heatmap)
 
 - [x] Linked lists
+  - rabit and hare algorithm
 - [x] Stacks - FILO or LIFO
 - [x] Queues - FIFO
 - [x] Doubly Linked lists
