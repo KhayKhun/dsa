@@ -28,14 +28,14 @@ class Solution:
         if not node: return
         visited = dict()
 
-        def dfs(node):
-            if node.val in visited: return visited[node.val]
+        def dfs(old):
+            if old.val in visited: return visited[old.val]
 
-            clone = Node(node.val)
-            visited[node.val] = clone
+            clone = Node(old.val)
+            visited[old.val] = clone
 
-            for neighbor in node.neighbors:
-                clone.neighbors.append(dfs(neighbor))
+            for n in old.neighbors:
+                clone.neighbors.append(dfs(n))
 
             return clone
 
