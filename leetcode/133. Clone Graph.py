@@ -29,8 +29,10 @@ class Solution:
         visited = dict()
 
         def dfs(old):
+            # visited? return the stored one
             if old.val in visited: return visited[old.val]
 
+            # nope? create a new clone
             clone = Node(old.val)
             visited[old.val] = clone
 
