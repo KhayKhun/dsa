@@ -17,6 +17,9 @@
 - [x] Hash set, map
 - [x] Graph
 - [x] Grid graph
+  - Dijkstra
+  - Bellman Ford
+  - Bridge, Strongly connected components, MST
 - [x] dfs, bfs
 - [x] Sliding window
 - [x] Backtracking
