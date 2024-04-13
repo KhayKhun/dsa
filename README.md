@@ -20,6 +20,8 @@
   - Dijkstra
   - Bellman Ford
   - Bridge, Strongly connected components, MST
+  - Topological sorting
+  - Minimum flow/cut
 - [x] dfs, bfs
 - [x] Sliding window
 - [x] Backtracking
