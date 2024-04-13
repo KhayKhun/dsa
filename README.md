@@ -17,7 +17,7 @@
 - [x] Hash set, map
 - [x] Graph
 - [x] Grid graph
-  - Dijkstra
+  - Dijkstra (greedy + bfs)
   - Bellman Ford
   - Bridge, Strongly connected components, MST
   - Topological sorting
