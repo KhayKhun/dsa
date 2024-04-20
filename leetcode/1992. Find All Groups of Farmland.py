@@ -2,15 +2,14 @@ from typing import List
 class Solution:
     def findFarmland(self, land: List[List[int]]) -> List[List[int]]:
         result = []
-        m, n = len(land), len(land[0])
         
         def findFarmlandCoordinates(row, col):
             coordinates = [row, col]
             r, c = row, col
             
-            while r < m and land[r][col] == 1:
+            while r < len(land) and land[r][col] == 1:
                 r += 1
-            while c < n and land[row][c] == 1:
+            while c < len(land[0]) and land[row][c] == 1:
                 c += 1
             
             coordinates.extend([r - 1, c - 1])
@@ -21,8 +20,8 @@ class Solution:
             
             return coordinates
         
-        for i in range(m):
-            for j in range(n):
+        for i in range(len(land)):
+            for j in range(len(land[0])):
                 if land[i][j] == 1:
                     result.append(findFarmlandCoordinates(i, j))
         
