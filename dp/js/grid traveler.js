@@ -11,4 +11,4 @@ function gridTraveler(a,b){
     return res
 }
 
-console.log(gridTraveler(18,18))
+console.log(gridTraveler(4,4))
