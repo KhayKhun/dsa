@@ -1,6 +1,5 @@
 n, m = map(int, input().split())
-tb = [list(map(int, input().split())) for i in range(n)]
-
+tb = [list(map(int, input().split())) for _ in range(n)] # n = number of input to store in tb
 row_sums = [sum(row) for row in tb]
 col_sums = []
 for c in range(m):
