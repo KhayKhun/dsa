@@ -12,5 +12,4 @@ function allConstruct(target,words){
     return res
 }
 
-console.log(allConstruct('eeeeeee',['e','ee','eee','e','eeeeeee','eeeee','eeeeeeeeeeeeeeeeeeeee']))
 console.log(allConstruct('purple',['purp','p','ur','le','purpl']))
